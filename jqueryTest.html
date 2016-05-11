@@ -14,6 +14,7 @@
 <input id="value" name="name" value="王二麻子"></input>
 <input id="age"></input>
 <hr>
+<button id="change">Change</button>
 <div id="append"><span>This is a span</span></div>
 <script type="text/javascript">
 	function test(){
@@ -31,8 +32,10 @@
 	});
 
 	alert($("#append").html());
-	alert("更改append div里的内容");
-	$("#append").html("<button>Dynamic Button</button>")
+	$("#change").click(function(){
+		alert("更改append div里的内容");
+		$("#append").html("<button>Dynamic Button</button>")
+	});
 
 </script>
 </body>
