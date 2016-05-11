@@ -22,6 +22,16 @@ function MyObject(node)
 		return inNode;
 	}
 
+	this.val = function()
+	{
+		return inNode.value;
+	}
+
+	this.html = function()
+	{
+		return inNode.innerTHML;
+	}
+
 	//访问集合元素
 	function validIndex(ind,inNode)
 	{
@@ -34,25 +44,25 @@ function MyObject(node)
 	this.first = function(){
 		if(!validIndex(index,inNode))
 			return null;
-		return inNode[index];
+		return new MyObject(inNode[index]);
 	}
 	this.next = function(){
 		if(!validIndex(index,inNode))
 			return null;
-		return inNode[++index];
+		return new MyObject(inNode[++index]);
 	}
 	this.pre = function()
 	{
 		if(!validIndex(index,inNode))
 			return null;
-		return inNode[--index];
+		return new MyObject(inNode[--index]);
 	}
 	this.last = function()
 	{
 		if(!validIndex(index,inNode))
 			return null;
 		index = inNode.length-1;
-		return inNode[index];
+		return new MyObject(inNode[index]);
 	}
 }
 
