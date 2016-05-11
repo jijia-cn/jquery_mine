@@ -21,17 +21,25 @@ function MyObject(node)
 	this.getNode = function(){
 		return inNode;
 	}
-
-	this.val = function()
+	
+	this.val = function(value)
 	{
-		return inNode.value;
+		if(null == value)
+			return inNode.value;
+		inNode.value = value;
 	}
 
-	this.html = function()
+	// 获取内部html
+	this.html = function(value)
 	{
-		return inNode.innerTHML;
+		if(null == value)
+			return inNode.innerHTML;
+		inNode.innerHTML = value;
 	}
-
+	this.click = function(fn)
+	{
+		inNode.onclick = fn;
+	}
 	//访问集合元素
 	function validIndex(ind,inNode)
 	{
@@ -72,14 +80,11 @@ var $ = function(name)
 	var key = name.substr(1,name.length-1);
 	// alert(ch+" "+id);
 	if('#' == ch)
+	{
 		return new MyObject(getElementById(key));
+	}
 	else if('*' == ch)
 		return new MyObject(getElementByName(key));
 	else
 		return new MyObject(getElementByTagName(name));
-}
-
-MyObject.prototype.click = function(fn)
-{
-	setTimeout(fn,0);
 }
