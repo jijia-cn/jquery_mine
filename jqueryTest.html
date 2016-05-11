@@ -5,24 +5,35 @@
 	<script type="text/javascript" src="jquery.my.js"></script>
 </head>
 <body>
-<div id="test"></div>
+<button onclick="test();">测试</button>
+<button id="read">读取值</button>
 <input id="value" name="name" value="张三"></input>
 <input id="value" name="name" value="李四"></input>
 <input id="value" name="name" value="王五"></input>
 <input id="value" name="name" value="赵六"></input>
 <input id="value" name="name" value="王二麻子"></input>
+<input id="age"></input>
+<hr>
+<div id="append"><span>This is a span</span></div>
 <script type="text/javascript">
-	var testObj = $("#test");
-	alert(testObj.getNode());
-	testObj.click(function(){
+	function test(){
 		var nameObj = $('*name');
 		// var nodes = nameObj.getNode();
 		// alert('click...'+" "+nodes+" "+nodes[0]);
-		alert("first: "+nameObj.first().value);
-		alert("next: "+nameObj.next().value);
-		alert("pre: "+nameObj.pre().value);
-		alert("last: "+nameObj.last().value);
+		// alert("first: "+nameObj.first().value);
+		// alert("next: "+nameObj.next().value);
+		// alert("pre: "+nameObj.pre().value);
+		// alert("last: "+nameObj.last().value);
+		$("#age").val(30);
+	}
+	$("#read").click(function(){
+		alert("age: "+$("#age").val());
 	});
+
+	alert($("#append").html());
+	alert("更改append div里的内容");
+	$("#append").html("<button>Dynamic Button</button>")
+
 </script>
 </body>
 </html>
