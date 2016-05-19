@@ -29,6 +29,8 @@ function MyObject(node)
 		inNode.value = value;
 	}
 
+
+
 	// 获取内部html
 	this.html = function(value)
 	{
@@ -36,6 +38,19 @@ function MyObject(node)
 			return inNode.innerHTML;
 		inNode.innerHTML = value;
 	}
+
+
+	this.on = function(event,fn){
+		if(event=="click")
+		{
+			inNode.onclick = fn;
+		}
+		else
+		{
+			alert("jquery.my.js库还未添加其他事件,请继续完善库.");
+		}
+	}
+
 	this.click = function(fn)
 	{
 		inNode.onclick = fn;

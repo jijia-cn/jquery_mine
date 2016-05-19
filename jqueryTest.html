@@ -6,6 +6,7 @@
 </head>
 <body>
 <button onclick="test();">测试</button>
+<button id="test">点击事件</button>
 <button id="read">读取值</button>
 <input id="value" name="name" value="张三"></input>
 <input id="value" name="name" value="李四"></input>
@@ -29,6 +30,10 @@
 	}
 	$("#read").click(function(){
 		alert("age: "+$("#age").val());
+	});
+
+	$("#test").on("click",function(){
+		alert("你触发了点击事件");
 	});
 
 	alert($("#append").html());
